@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vidyut Sanchar</title>
+  <link rel="icon" type="image/x-icon" href="/Exam Wesite/images/icon.ico">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: url('/ExamWebsite/images/animation.gif') center/cover no-repeat fixed;
+      min-height: 100vh;
+    }
+
+    #welcome-screen {
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+  align-items: center;
+  color: #69c553;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4em;
+  z-index: 9999;
+  animation: fadeOut 1s ease 1.5s forwards;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* align children in a row */
+  gap: 40px; /* optional spacing between items */
+  align-items: center; /* vertically center items */
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+    .hero {
+  position: relative;
+  background-image: url('/ExamWebsite/images/Website title banner.png');
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px 40px 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  margin-top: 42px;
+  opacity: 0; /* start invisible */
+  transform: translateY(-100px);
+  animation: fadeInEase 1s ease forwards;
+  animation-delay: 2.3s;
+}
+
+.hero * {
+  position: relative;
+  z-index: 2;
+}
+nav {
+  position: fixed;        /* Fix at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,1); /* slightly transparent background */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 15px 30px;
+  z-index: 1000;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  font-size: 15px;
+  transition: color 0.3s ease;
+  padding-right: 50px;
+}
+
+nav a:hover {
+  color: #f5c518;
+}
+
+
+.hero {
+  /* Add padding-top to prevent hero content hiding under navbar */
+  padding-top: 70px; /* Adjust depending on nav height */
+  border-radius: 15pxl;
+}
+
+@keyframes fadeInEase {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+    .hero h1 {
+      font-size: 3.2em;
+      margin-bottom: 50px;
+      margin-left: 80px;
+      font-weight: 1000;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.19);
+      color: black;
+      word-spacing: 500px;
+      opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUpText 2s ease forwards;
+  animation-delay: 1.5s;
+    }
+
+    @keyframes fadeInUpText {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+    .downloads-section {
+  position: relative;
+  left: 0;
+  width: 100px; 
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 10px 0;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  max-height: 90vh;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  height: 520x;
+  max-height: 520px;
+  overflow-y: auto;
+  opacity: 0; /* start hidden */
+  animation-name: fadeInFromLeft;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; /* keep final state */
+  animation-timing-function: ease;
+  animation-delay: 3s;
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); /* start 100px to the right */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* end at original position */
+  }
+}
+.more-options {
+  position: absolute;
+  top: 300px;
+  left: 0;
+  width: 100px; 
+  background-color: #ffffff;
+  padding: 10px 0;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  max-height: 90vh;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+  height: 569px;
+  max-height: 569px;
+  overflow-y: auto;
+}
+
+/* Rotate the Downloads heading vertically */
+.downloads-section h2 {
+  color: #54cbb6;
+  margin-top: 150px;
+  font-weight: 1000;
+  font-size: 1.5em;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+/* Initially hide buttons */
+.download-btn {
+opacity: 0;
+  max-width: 0;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #54cbb6;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  width:100%;
+  text-overflow: ellipsis;
+  box-shadow: none;
+  transition: opacity 0.3s ease, max-width 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+}
+
+/* On hover expand width and show buttons */
+.downloads-section:hover {
+  opacity: 100%;
+  width: 400px;
+  background-image: url('/ExamWebsite/images/download_section.png');
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
+}
+
+.downloads-section:hover h2 {
+    font-weight: 1000;
+  transform: rotate(0);
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.downloads-section:hover .download-btn {
+  opacity: 1;
+  max-width: 180px;
+  padding: 12px 20px;
+  margin: 8px 10px;
+  overflow: visible;
+}
+
+/* Button hover color */
+.download-btn:hover {
+  background-color: #307464;
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.about-department {
+  position: relative;
+  max-width: 1100px;
+  max-height: 200px;
+  padding: 10px;
+  background-color: #f5f8fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  color: #333;
+  font-family: 'Orbitron', sans-serif;
+  z-index: 5;
+  row-gap: 40px;
+  opacity: 0%;
+  animation-name: fadeInFromcentre;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; /* keep final state */
+  animation-timing-function: ease;
+  animation-delay: 3s;
+
+}
+
+@keyframes fadeInFromcentre{
+  0% {
+    opacity: 0;
+    transform: translateY(100px); /* start 100px to the right */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* end at original position */
+  }
+}
+
+.about-department h2 {
+  font-size: 2em;
+  margin-bottom: 16px;
+  color: #54cbb6;
+}
+
+.about-department p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.important-links {
+  position: relative;
+  max-width: 1100px;
+  max-height: 200px;
+  padding: 10px;
+  background-color: #f5f8fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  color: #333;
+  font-family: 'Orbitron', sans-serif;
+  z-index: 5;
+  column-gap: 40px;
+  opacity: 0%;
+  animation-name: fadeInFromcentre;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; /* keep final state */
+  animation-timing-function: ease;
+  animation-delay: 3s;
+
+}
+.important-links h2 {
+  font-size: 2em;
+  margin-bottom: 16px;
+  color: #54cbb6;
+}
+
+.important-links p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+#links-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.link-button {
+  background-color: #69c553;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.link-button:hover {
+  background-color: #519e3a;
+}
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  background-color: #000000;   /* match nav bar color */
+  color: white;
+  text-align: center;
+  justify-content: center;  /* centers horizontally */
+  align-items: center; 
+  padding: 5px 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1em;
+  z-index: 15;
+}
+
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.book-downloads {
+  position: relative;
+  max-width: 500px;/* centered with margin spacing */
+  min-width: 100px;
+  padding: 10px;
+  overflow: hidden;
+  flex-direction: column;
+  height: 520px;
+  max-height: 520px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  font-family: 'Orbitron', sans-serif;
+  color: #333;
+  opacity: 0%;
+  animation-name: fadeInFromRight;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; /* keep final state */
+  animation-timing-function: ease;
+  animation-delay: 3s;
+}
+
+@keyframes fadeInFromRight{
+  0% {
+    opacity: 0;
+    transform: translateX(100px); /* start 100px to the right */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* end at original position */
+  }
+}
+
+.book-downloads:hover{
+  opacity: 100%;
+
+}
+
+
+.book-downloads h2 {
+  color: #54cbb6;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Style for each download link/button inside container */
+.book-download-link {
+  display: block;
+  background-color: #54cbb6;
+  color: black;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+}
+
+.book-download-link:hover {
+  background-color: #307464;
+}
+
+.main-content {
+  display: flex;
+  gap: 20px;       /* Space between about and downloads */
+  flex: 1;         /* Fill the space between nav and footer */
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 0px; /* To push below fixed nav */
+}
+
+
+
+  </style>
+</head>
+<body class = "stop-scrolling">
+    <nav>
+        <a href="mailto:vidyutsancharsmvdu@gmail.com" target="_blank">Mail</a>
+        <a href="/Exam Wesite/src/Contributes.html" target="_self">Contributors</a>
+        <a href="https://github.com/vidyutsancharsmvdu/main" target="_self">GITHUB</a>
+        <!-- Add more links as needed -->
+      </nav>
+      <div id="welcome-screen">
+        <h2>Electronics And Comunication</h2>
+      </div>
+
+      
+<div class = 'page-wrapper'>
+  <section class="hero">
+    <h1>VIDYUT SANCHAR</h1>
+  </section>
+<div class = 'main-content'>
+ 
+  <section class="downloads-section">
+    <h2>Download PYQ's</h2>
+    <div id="buttons-container"></div>
+  </section>
+
+  <div class = 'container'>
+
+  <div class="about-department">
+    <h2>About the Department</h2>
+    <p>
+      Our department is committed to excellence in teaching, research, and community service. We provide a dynamic learning environment with expert faculty, innovative programs, and opportunities for collaboration and growth.
+    </p>
+  </div>
+
+  <section class = "important-links">
+    <h2>Important Links</h2>
+    <div id="links-buttons-container"></div>
+  </section>
+  </div>
+
+  <section class="book-downloads">
+    <h2>Books For Reference</h2>
+    <div id="books-container"></div>
+  </section>
+  </div>
+
+
+  </div>
+
+  <footer class="site-footer">
+    <p>Yeh Kar Dala to life Jingalala!! &copy; Electronics and Communication</p>
+  </footer>
+  </div>
+  
+  <script>
+     window.onload = () => {
+      setTimeout(() => {
+        document.getElementById('welcome-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+      }, 3000);
+    };
+    /**
+     * Creates a download button and appends it to the container.
+     * @param {string} fileUrl - The URL of the PDF file.
+     * @param {string} label - The button label text.
+     * @param {string} containerId - The ID of the container where the button will be added.
+     */
+    function createDownloadButton(fileUrl, label, containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      const a = document.createElement('a');
+      a.href = fileUrl;
+      a.download = '';
+      a.textContent = label;
+      a.className = 'download-btn';
+      container.appendChild(a);
+    }
+
+    const books = [
+  { url: '/Exam Wesite/Books-PDFs/B. P. Lathi, Zhi Ding - Modern Digital and Analog Communication Systems.pdf', label: 'Analog Communication' },
+  { url: '/Exam Wesite/Books-PDFs/Digital Electronics-Morris_Manno.pdf', label: 'Digital Electronics' },
+  { url: '/Exam Wesite/Books-PDFs/Linear Integrated Circuit 2nd Edition - D. Roy Choudhary.pdf', label: 'LICA' },
+  { url: 'Exam Wesite/Books-PDFs/EMFT -Sadiku.pdf', label: 'EMFT' },
+];
+
+const booksContainer = document.getElementById('books-container');
+
+books.forEach(book => {
+  const a = document.createElement('a');
+  a.href = book.url;
+  a.textContent = book.label;
+  a.className = 'book-download-link';
+  a.setAttribute('download', '');
+  booksContainer.appendChild(a);
+});
+
+
+    // Array of PDF files with different names and labels
+    const pdfFiles = [
+      { url: '/Exam Wesite/Paper-PDFs/SSD_Basic Electronics_.pdf', label: 'SSD/Basic Electronics' },
+      { url: '/Exam Wesite/Paper-PDFs/SIGNALS AND SYSTEM.pdf', label: 'Signals And System' },
+      { url: '/Exam Wesite/Paper-PDFs/optical fibre communication.pdf', label: 'Optical Fiber Communication' },
+      { url: '/Exam Wesite/Paper-PDFs/NAS.pdf', label: 'Network Analysis and Synthesis' },
+      { url: '/Exam Wesite/Paper-PDFs/Multimedia Communication.pdf', label: 'Multimedia Communication' },
+      { url: '/Exam Wesite/Paper-PDFs/Microwave Engineering.pdf', label: 'Microwave Engineering' },
+      { url: '/Exam Wesite/Paper-PDFs/Microprocessor and interfacing_.pdf', label: 'Microprocessor & Interfacing' },
+      { url: '/Exam Wesite/Paper-PDFs/MatLab Programming_.pdf', label: 'MATLAB Programming' },
+      { url: '/Exam Wesite/Paper-PDFs/Linear Integrated Circuits.pdf', label: 'Linear Integrated Circuits & Applications' },
+      { url: '/Exam Wesite/Paper-PDFs/IOT.pdf', label: 'Internet Of Things' },
+      { url: '/Exam Wesite/Paper-PDFs/introduction to Wireless Network.pdf', label: 'Introduction to Wireless Networks' },
+      { url: 'Exam Wesite/Paper-PDFs/IC FABRICATION.pdf', label: 'IC Fabrication & VLSI ' },
+      { url: '/Exam Wesite/Paper-PDFs/FoEE.pdf', label: 'Fundamental of Electrical Engineering' },
+      { url: 'Exam Wesite/Paper-PDFs/Engineering Physics.pdf', label: 'Engineering Physics' },
+      { url: '/Exam Wesite/Paper-PDFs/engineering maths 2.pdf', label: 'Engineering Mathmatics-II' },
+      { url: '/Exam Wesite/Paper-PDFs/engineering maths 1.pdf', label: 'Engineering Mathmatics-I' },
+      { url: '/Exam Wesite/Paper-PDFs/Engineering Graphics with CAD.pdf', label: 'Engineering Graphics with CAD' },
+      { url: '/Exam Wesite/Paper-PDFs/EMFT.pdf', label: 'Electromagnetic Field Theory' },
+      { url: 'Exam Wesite/Paper-PDFs/EDC.pdf', label: 'Electronics Devices & Circuits' },
+      { url: 'Exam Wesite/Paper-PDFs/DSP.pdf', label: 'Digital Signal Processing' },
+      { url: '/Exam Wesite/Paper-PDFs/DSD using Verilog.pdf', label: 'Digital System Design Using Verilog' },
+      { url: '/Exam Wesite/Paper-PDFs/DIGITAL ELECTRONICS.pdf', label: 'Digital Electronics' },
+      { url: '/Exam Wesite/Paper-PDFs/DIGITAL COMMUNICATION.pdf', label: 'Digital Communication Engineering' },
+      { url: '/Exam Wesite/Paper-PDFs/Control System.pdf', label: 'Control System' },
+      { url: '/Exam Wesite/Paper-PDFs/Communication and Data Network.pdf', label: 'Communication & Data Neiwork' },
+      { url: '/Exam Wesite/Paper-PDFs/Central Workshop.pdf', label: 'Central Workshop' },
+      { url: '/Exam Wesite/Paper-PDFs/Biology for Engineers.pdf', label: 'Biology For Engineers' },
+      { url: '/Exam Wesite/Paper-PDFs/Applied Chemistry.pdf', label: 'Applied Chemistry' },
+      { url: '/Exam Wesite/Paper-PDFs/Antenna and Wave Propagation.pdf', label: 'Antenna & Wave Propagation' },
+      { url: '/Exam Wesite/Paper-PDFs/Analog communication.pdf', label: 'Analog Communication Engineering' },
+      { url: '/Exam Wesite/Paper-PDFs/Advanced Embedded System.pdf', label: 'Advanced Embedded Systems' },
+      { url: '/Exam Wesite/Paper-PDFs/Introduction to C.pdf', label: 'Introduction to C Programming' },
+      { url: '/Exam Wesite/Paper-PDFs/Universal human Values.pdf', label: 'Universal Human Values' },
+      { url: '/Exam Wesite/Paper-PDFs/EVS.pdf', label: 'Enviormental Studies' }
+
+    ];
+
+const importantLinks = [
+  { url: 'https://drive.google.com/drive/folders/1qdHvewHxvWtihSAUSp4xp4gcDBK-5XU9?usp=sharing', label: 'MultiSim 8' },
+  { url: 'https://drive.google.com/drive/folders/1KSNeoUnvI0TiBO4iJ8hlefHbc3aBYEYf?usp=sharing', label: 'Eagle' },
+  { url: 'https://drive.google.com/drive/folders/1yRxqV-VUDK0rnvWohBi5C2TTAZH9ASZQ?usp=sharing', label: 'Proteus 8' },
+  { url: 'https://github.com/SiddhantSilwal/8085-simulator-installer-for-debian', label: '8085 Simulator' },
+  { url: 'https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html', label: 'LT Spice' },
+];
+
+const container = document.getElementById('links-buttons-container');
+
+importantLinks.forEach(link => {
+  const a = document.createElement('a');
+  a.href = link.url;
+  a.textContent = link.label;
+  a.className = 'link-button';
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  container.appendChild(a);
+});
+
+    // Create buttons dynamically based on the pdfFiles array
+    pdfFiles.forEach(file => {
+      createDownloadButton(file.url, file.label, 'buttons-container');
+    });
+  </script>
+</body>
+</html>
